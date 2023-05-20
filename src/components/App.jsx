@@ -12,6 +12,10 @@ export const App = () => {
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
+    if (contacts.length === 0) {
+      localStorage.removeItem('contacts');
+      return;
+    }
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
